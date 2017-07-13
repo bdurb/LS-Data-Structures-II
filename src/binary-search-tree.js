@@ -37,8 +37,17 @@ class BinarySearchTree {
     return hasIt;
   }
 
-  depthFirstForEach() {
-
+  depthFirstForEach(cb) {
+    const allEm = (num) => {
+      cb(num.value);
+      if (num.left) {
+        allEm(num.left);
+      }
+      if (num.right) {
+        allEm(num.right);
+      }
+    };
+    allEm(this);
   }
 }
 
